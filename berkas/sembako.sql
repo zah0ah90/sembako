@@ -11,7 +11,7 @@
  Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 16/06/2022 15:44:43
+ Date: 22/06/2022 16:09:10
 */
 
 SET NAMES utf8mb4;
@@ -31,6 +31,10 @@ CREATE TABLE `tbl_penjualan`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of tbl_penjualan
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for tbl_penjualan_detail
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_penjualan_detail`;
@@ -45,6 +49,10 @@ CREATE TABLE `tbl_penjualan_detail`  (
   `add_date` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_penjualan_detail
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for tbl_sembako
@@ -64,6 +72,10 @@ CREATE TABLE `tbl_sembako`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of tbl_sembako
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for tbl_sembako_masuk_keluar
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_sembako_masuk_keluar`;
@@ -78,6 +90,10 @@ CREATE TABLE `tbl_sembako_masuk_keluar`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of tbl_sembako_masuk_keluar
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for tbl_user
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_user`;
@@ -88,7 +104,13 @@ CREATE TABLE `tbl_user`  (
   `password` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `add_date` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tbl_user
+-- ----------------------------
+INSERT INTO `tbl_user` VALUES (1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL);
+INSERT INTO `tbl_user` VALUES (2, 'pemilik', 'pemilik', '58399557dae3c60e23c78606771dfa3d', NULL);
 
 -- ----------------------------
 -- View structure for view_sembako_sumary

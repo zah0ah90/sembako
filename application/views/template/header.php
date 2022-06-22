@@ -18,12 +18,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url('asset/') ?>dist/css/adminlte.min.css">
 
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="<?= base_url('asset/') ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+
+
     <!-- jQuery -->
     <script src="<?= base_url('asset/') ?>plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="<?= base_url('asset/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="<?= base_url('asset/') ?>dist/js/adminlte.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="<?= base_url('asset/') ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+
+    <script src="<?= base_url('asset/') ?>dist/js/jquery.validate.min.js"></script>
+    <style>
+    .error {
+        color: red;
+    }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -41,9 +55,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-
-
-
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -52,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
-                        <a href="#" class="dropdown-item">
+                        <a href="<?= base_url('auth/logout') ?>" class="dropdown-item">
                             <i class="fa fa-sign-out"></i> Log out
 
                         </a>
@@ -63,7 +74,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-light-primary elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url() ?>" class="brand-link text-center">
                 <!-- <img src="<?= base_url('asset/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
@@ -79,41 +90,55 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
+
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('dashboard') ?>" class="nav-link">
+                                <!-- <i class="nav-icon fas fa-th"> </i> -->
+                                <!-- <i class="fa fa-tachometer nav-icon"></i> -->
+                                <i class="fa fa-file nav-icon"></i>
                                 <p>
                                     Dashboard
                                 </p>
                             </a>
                         </li>
+                        <?php if ($this->session->userdata('nama') == 'admin') {  ?>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('transaksi') ?>" class="nav-link">
+                                <!-- <i class="nav-icon fas fa-th"></i> -->
+                                <i class="fa fa-shopping-cart nav-icon"></i>
                                 <p>
                                     Penjualan
                                 </p>
                             </a>
                         </li>
+                        <?php } ?>
+
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('transaksi/history') ?>" class="nav-link">
+                                <!-- <i class="nav-icon fas fa-th"></i> -->
+                                <!-- <i class="fa fa-sticky-note nav-icon"></i> -->
+                                <i class="fa fa-book nav-icon"></i>
                                 <p>
                                     History Penjualan
                                 </p>
                             </a>
                         </li>
+
+                        <?php if ($this->session->userdata('nama') == 'admin') {  ?>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('sembako') ?>" class="nav-link">
+                                <!-- <i class="nav-icon fas fa-th"></i> -->
+                                <i class="fa fa-archive nav-icon"></i>
                                 <p>
                                     Sembako
                                 </p>
                             </a>
                         </li>
+                        <?php } ?>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url('sembako/history') ?>" class="nav-link">
+                                <!-- <i class="nav-icon fas fa-th"></i> -->
+                                <i class="fa fa-sticky-note nav-icon"></i>
                                 <p>
                                     History Sembako
                                 </p>
